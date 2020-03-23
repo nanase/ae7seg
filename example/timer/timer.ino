@@ -1,7 +1,7 @@
 #include "ae7seg.h"
 
 #define PIN_LATCH 9
-#define INTERVAL 1000
+#define INTERVAL 10
 
 AE7SEGSPI ae7seg(PIN_LATCH);
 
