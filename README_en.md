@@ -1,9 +1,9 @@
 ae7seg
 ======
 
-This is an AE-7SEG-BOARD library to use seven-segment led display via 74595 (8-bit shift register/latch).
+This is a library for [AE-7SEG-BOARD](http://akizukidenshi.com/catalog/g/gK-10194/), a 7-segment LED serial driver module from Akizuki Electronics.
 
-The library support dot segment, multiple digits, SPI and GPIO for communication.
+The library supports dot segments, multi-digit, SPI or GPIO connections.
 
 ## Features
 
@@ -14,13 +14,13 @@ The library support dot segment, multiple digits, SPI and GPIO for communication
 
 ## Usage
 
-After install the library, include `ae7seg.h` to your sketch
+After the library is installed, include the header file to your sketch
 
 ```cpp
 #include <ae7seg.h>
 ```
 
-and then declare `AE7SEGSPI` or `AE7SEGGPIO` instance with pin number for latch.
+and then, declare `AE7SEGSPI` or `AE7SEGGPIO` and specify the number of LATCH pin.
 
 ```cpp
 // use SPI
@@ -30,7 +30,7 @@ AE7SEGSPI ae7seg(PIN_LATCH);
 AE7SEGGPIO ae7seg(PIN_LATCH, PIN_SDI, PIN_SCK);
 ```
 
-When you want to write a digit, call `writeNumber(number)` function between `beginWrite()` and `endWrite()`.
+Call `writeNumber(number)` function with `beginWrite()` and `endWrite()` in order to display one digit.
 
 ```cpp
 ae7seg.beginWrite();
@@ -38,7 +38,7 @@ ae7seg.writeNumber(7);  // to display "7"
 ae7seg.endWrite();
 ```
 
-To write multiple digits, call `writeNumber(number)` enough times.
+To write multiple digits, call `writeNumber(number)` as many digits as you need.
 
 ```cpp
 ae7seg.beginWrite();
@@ -47,16 +47,16 @@ ae7seg.writeNumber(2);
 ae7seg.endWrite();
 ```
 
-If you want to display a dot segment, call `writeNumber(number, true)`.
+To display a dot segment, call `writeNumber(number, true)`. If there is no second argument, it is implicitly hidden.
 
 ```cpp
 ae7seg.beginWrite();
 ae7seg.writeNumber(4, true);  // display a dot segment
-ae7seg.writeNumber(2);        // not display implicitly
+ae7seg.writeNumber(2);        // implicitly hidden a dot segment
 ae7seg.endWrite();
 ```
 
-If you want to display more segment, call `writeDigit(digit)` instead of `writeNumber(number)`.
+To display any segment, call `writeDigit(digit)` instead of `writeNumber(number)`.
 
 ```cpp
 ae7seg.beginWrite();

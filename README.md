@@ -3,7 +3,7 @@ ae7seg
 
 [English version is here.](README_en.md)
 
-秋月電子の 7セグメントLEDシリアルドライバモジュール AE-7SEG-BOARD のためのライブラリです。
+秋月電子の 7セグメントLEDシリアルドライバモジュール [AE-7SEG-BOARD](http://akizukidenshi.com/catalog/g/gK-10194/) のためのライブラリです。
 
 ドット表示、複数桁、SPI または GPIO による接続に対応しています。
 
